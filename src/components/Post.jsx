@@ -4,11 +4,12 @@ const Post = ({ post }) => {
       <div className="card-body">
         <h5 className="card-title">{post.title}</h5>
         <p className="card-text">{post.body}</p>
-        <a href="#" className="btn btn-primary">
-          Go somewhere
-        </a>
+        {post.tags.map((tag) => (
+          <span className="badge text-bg-primary tag-div">{tag}</span>
+        ))}
       </div>
     </div>
   );
 };
+
 export default Post;
