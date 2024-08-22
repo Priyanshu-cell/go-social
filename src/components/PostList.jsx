@@ -8,7 +8,6 @@ const PostList = () => {
   if (!postList || postList.length === 0) {
     return <div>No posts available.</div>;
   }
-
   return (
     <>
       {postList.map((post) => (
