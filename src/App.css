@@ -28,5 +28,11 @@
 
 .create-post{
   width: 80%;
+  margin-top: 50px;
   margin-left: 10%;
+}
+
+.hello{
+  margin-top: 4rem;
+  margin-bottom: 1rem;
 }
