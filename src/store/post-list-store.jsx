@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export const PostListContext = createContext({
   postList: [],
@@ -24,17 +25,10 @@ const PostListReducer = (currPostList, action) => {
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(PostListReducer, []);
 
-  const addPost = (userId, postTitle, postBody, reactions, tags) => {
+  const addPost = (post) => {
     dispatchPostList({
       type: "ADD_POST",
-      payload: {
-        id: Date.now(),
-        title: postTitle,
-        body: postBody,
-        reaction: reactions,
-        userId: userId,
-        tags: tags,
-      },
+      payload: post,
     });
   };
 

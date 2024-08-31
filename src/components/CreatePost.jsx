@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { useContext, useRef } from "react";
 import { PostListContext } from "../store/post-list-store";
 
@@ -18,13 +19,27 @@ const CreatePost = () => {
     const reactions = reactionsElement.current.value;
     const tags = tagsElement.current.value.split(" ");
 
-    userIdElement.current.value = "";
-    postTitleElement.current.value = "";
-    postBodyElement.current.value = "";
-    reactionsElement.current.value = "";
-    tagsElement.current.value = "";
+    // userIdElement.current.value = "";
+    // postTitleElement.current.value = "";
+    // postBodyElement.current.value = "";
+    // reactionsElement.current.value = "";
+    // tagsElement.current.value = "";
 
-    addPost(userId, postTitle, postBody, reactions, tags);
+    fetch('https://dummyjson.com/posts/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: postTitle,
+        userId: 5,
+        body: postBody,
+        tags: tags,
+        views: reactions,
+        id: userId,
+
+      })
+    })
+    .then(res => res.json())
+    .then((post) => addPost(post));
   };
 
   return (
