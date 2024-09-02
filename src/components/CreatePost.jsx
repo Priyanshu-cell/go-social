@@ -25,9 +25,9 @@ const CreatePost = () => {
     // reactionsElement.current.value = "";
     // tagsElement.current.value = "";
 
-    fetch('https://dummyjson.com/posts/add', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    fetch("https://dummyjson.com/posts/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         title: postTitle,
         userId: 5,
@@ -35,11 +35,10 @@ const CreatePost = () => {
         tags: tags,
         views: reactions,
         id: userId,
-
-      })
+      }),
     })
-    .then(res => res.json())
-    .then((post) => addPost(post));
+      .then((res) => res.json())
+      .then((post) => addPost(post));
   };
 
   return (
