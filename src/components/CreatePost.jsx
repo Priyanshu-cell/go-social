@@ -30,11 +30,10 @@ const CreatePost = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         title: postTitle,
-        userId: 5,
+        userId: userId,
         body: postBody,
         tags: tags,
-        views: reactions,
-        id: userId,
+        reactions: reactions,
       }),
     })
       .then((res) => res.json())

@@ -24,7 +24,7 @@ const Post = ({ post }) => {
 
       </div>
       <div className="alert alert-success reaction" role="alert">
-        This post is reacted by {post.views || 0} people.
+        This post is reacted by {JSON.stringify(post.reactions) || 0} people.
       </div>
     </div>
   );
